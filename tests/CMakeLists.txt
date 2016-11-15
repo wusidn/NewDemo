@@ -4,13 +4,13 @@ PROJECT (tests)
 
 
 #指定头文件路径
-include_directories(${PROJECT_ROOT_DIR}/core)
+include_directories(${PROJECT_ROOT_DIR}/src)
 include_directories(${PROJECT_ROOT_DIR}/deps)
 
 ADD_EXECUTABLE(demo demo/main.cpp )
 
 #链接库
-TARGET_LINK_LIBRARIES(demo core)
+TARGET_LINK_LIBRARIES(demo engine)
 
 #输出路径
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_ROOT_DIR}/build/bin)

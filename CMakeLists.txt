@@ -1,26 +1,14 @@
 CMAKE_MINIMUM_REQUIRED (VERSION 3.4)
 
-PROJECT (Demo VERSION 0.0.0)
+PROJECT (Engine)
 
-SET(BUILD_TESTING flase)
+SET(PROJECT_ROOT_DIR ${PROJECT_SOURCE_DIR})
 
-#读取Src目录
-AUX_SOURCE_DIRECTORY(. DIR_SRCS)
+# 外部库
+ADD_SUBDIRECTORY(deps)
 
-#指定头文件路径
-include_directories(${PROJECT_SOURCE_DIR}/Include)
+# 核心库
+ADD_SUBDIRECTORY(core)
 
-include_directories(/usr/X11/include/)
-link_directories(/usr/X11/lib)
-
-#编译文件
-ADD_EXECUTABLE(${PROJECT_NAME} ${DIR_SRCS})
-
-#输出路径
-SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/bin)
-
-#链接库
-TARGET_LINK_LIBRARIES(${PROJECT_NAME} GL glfw3 glad)
-
-#设置编译选项
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -Wall")
+# 应用程序
+ADD_SUBDIRECTORY(tests)

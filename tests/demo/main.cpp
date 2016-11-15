@@ -1,5 +1,3 @@
-#define GLEW_STATIC
-// #include <GL/glew.h>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
@@ -10,7 +8,7 @@ using namespace std;
 // Function prototypes
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 
-int main(int argc, char ** argv)
+int main(void)
 {
     if(!glfwInit())
     {

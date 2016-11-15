@@ -4,11 +4,14 @@ PROJECT (engine VERSION 0.0.1)
 
 SET(BUILD_TESTING flase)
 
-if(WIN32)
+#跨平台测试
+IF(WIN32)
     MESSAGE("WIN32")
-else(UNIX)
-    MESSAGE("UNIX")
-endif()
+ELSE(UNIX AND APPLE)
+    MESSAGE("MacOS")
+ELSE(UNIX)
+    MESSAGE("Linux")
+ENDIF()
 
 #读取Src目录
 AUX_SOURCE_DIRECTORY(. DIR_SRCS)
